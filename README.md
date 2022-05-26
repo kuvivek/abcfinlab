@@ -16,6 +16,8 @@ abcfinlab assignment
 
    e. Associate the MFA device in the IAM -> User -> Select the IAM user -> Security Credentials Tab  -> Assigned MFA device (Manage option). Once done logout and login again. It will ask for MFA credentials.
 
+   f. Create aws-vault based on the command mentioned in this link: https://github.com/99designs/aws-vault#installing
+
 2. Get AWS ready for Terraform
   Follow along the steps mentioned in this document.
   https://www.terraform.io/language/settings/backends/s3
@@ -29,5 +31,10 @@ abcfinlab assignment
   - Add main.tf file with the provider aws version as 4.15.1 as per the latest released version mentioned here.
   https://github.com/hashicorp/terraform-provider-aws/blob/main/CHANGELOG.md
 
+4. Setup Docker-compose to run terraform - For standardizing the version and also minimalize the tools installation on local machine.
+
+   
+
+https://hub.docker.com/r/hashicorp/terraform-k8s/tags
 
 https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started#install-terraform
