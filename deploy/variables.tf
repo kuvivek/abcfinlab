@@ -10,3 +10,13 @@ variable "contact" {
   default = "email@petclinic.link"
 }
 
+variable "db_username" {
+  description = "Username for the RDS Postgres instance"
+  default     = "petclinic"
+}
+
+variable "db_password" {
+  description = "Password for the RDS postgres instance"
+  default     = "petclinic"
+}
+
