@@ -20,3 +20,6 @@ variable "db_password" {
   default     = "petclinic"
 }
 
+variable "bastion_key_name" {
+  default = "petclinic-bastion"
+}
