@@ -22,7 +22,12 @@ abcfinlab assignment
 
   - Creation of private s3 bucket 'petclinic-terraformtfstate' for the tfstate storage with the versioning enabled. https://aws.amazon.com/s3/
   - DynamoDB table creation 'petclinic-terraformtfstate-lock' along with Partition key as 'LockID' for storing the lock of the tfstate in North Virginia (for cheaper cost, 1st AWS datacenter of AWS), so that only one instance of terraform is executed. https://aws.amazon.com/dynamodb/
-  - ECR repository for the Spring Boot Application docker image.
+  - ECR repository `spring-petclinic` with scan on push enabled in the North Virginia region (us-east-1) , for the Spring Boot Application docker image storage.
 
-3. 
+3. Configure terraform
+  - Add .gitignore
+  - Add main.tf file with the provider aws version as 4.15.1 as per the latest released version mentioned here.
+  https://github.com/hashicorp/terraform-provider-aws/blob/main/CHANGELOG.md
+
+
 https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started#install-terraform
