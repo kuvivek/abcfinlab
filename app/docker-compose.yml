@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  petclinic_app:
+    build: .
+    #image: 943618641173.dkr.ecr.us-east-1.amazonaws.com/spring-petclinic:434 
+    ports:
+      - 8081:8080
+    restart: always
+  postgres:
+    image: postgres:14.1
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=petclinic
+      - POSTGRES_USER=petclinic
+      - POSTGRES_DB=petclinic

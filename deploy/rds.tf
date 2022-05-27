@@ -28,11 +28,11 @@ resource "aws_security_group" "rds" {
 resource "aws_db_instance" "main" {
   identifier              = "${local.prefix}-db"
   db_name                 = "petclinic"
-  allocated_storage       = 15
+  allocated_storage       = 20
   storage_type            = "gp2"
   engine                  = "postgres"
   engine_version          = "14.1"
-  instance_class          = "db.t2.micro"
+  instance_class          = "db.t3.micro"
   db_subnet_group_name    = aws_db_subnet_group.main.name
   password                = var.db_password
   username                = var.db_username

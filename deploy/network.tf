@@ -125,7 +125,7 @@ resource "aws_nat_gateway" "public_b" {
 
 
 ##################################################
-# Private Subnets - Outbound internt access only #
+# Private Subnets - Outbound internet access only #
 ##################################################
 resource "aws_subnet" "private_a" {
   cidr_block        = "10.1.10.0/24"

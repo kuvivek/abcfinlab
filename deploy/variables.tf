@@ -23,3 +23,17 @@ variable "db_password" {
 variable "bastion_key_name" {
   default = "petclinic-bastion"
 }
+
+variable "dns_zone_name" {
+  description = "Domain name"
+  default     = "petclinic.link"
+}
+
+variable "subdomain" {
+  description = "Subdomain per environment"
+  type        = map(string)
+  default = {
+    production = "api"
+    dev        = "api.dev"
+  }
+}
