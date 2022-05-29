@@ -24,14 +24,14 @@ abcfinlab assignment
   https://www.terraform.io/language/settings/backends/s3
 
   - Creation of private s3 bucket 'petclinic-terraformtfstate' for the tfstate storage with the versioning enabled. https://aws.amazon.com/s3/
-
+    ```
     MacBook-Pro:abcfinlab vivek$ aws-vault exec vivek-iam-personal -- aws s3 ls
     Enter MFA code for arn:aws:iam::943618641173:mfa/vivek: 577529
     2022-05-26 13:32:10 petclinic-terraformtfstate
     MacBook-Pro:abcfinlab vivek$
-
+    ```
   - DynamoDB table creation 'petclinic-terraformtfstate-lock' along with Partition key as 'LockID' for storing the lock of the tfstate in North Virginia (for cheaper cost, 1st AWS datacenter of AWS), so that only one instance of terraform is executed. https://aws.amazon.com/dynamodb/
-
+    ```
     MacBook-Pro:~ vivek$ aws-vault exec vivek-iam-personal -- aws dynamodb list-tables
     {
         "TableNames": [
@@ -40,7 +40,7 @@ abcfinlab assignment
     }
 
     MacBook-Pro:~ vivek$
-
+    ```
   - ECR repository `spring-petclinic` with scan on push enabled in the North Virginia region (us-east-1) , for the Spring Boot Application docker image storage.
 
 3. Configure terraform
