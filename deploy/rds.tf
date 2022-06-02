@@ -18,8 +18,10 @@ resource "aws_security_group" "rds" {
 
   ingress {
     protocol  = "tcp"
+    description  = "Access from the Applications on Kubernetes"
     from_port = 5432
     to_port   = 5432
+    security_groups = [aws_eks_cluster.aws_eks.vpc_config[0].cluster_security_group_id]
   }
 
   tags = local.common_tags
