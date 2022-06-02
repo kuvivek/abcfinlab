@@ -50,7 +50,38 @@ abcfinlab assignment
 
 4. Setup Docker-compose to run terraform - For standardizing the version and also minimalize the tools installation on local machine.
 
-   
+  MacBook-Pro:abcfinlab vivek$
+  MacBook-Pro:abcfinlab vivek$ aws-vault exec vivek-iam-personal --duration=12h
+  Enter MFA code for arn:aws:iam::943618641173:mfa/vivek: 632591
+  bash: export: `%1~': not a valid identifier
+  bash: export: `0': not a valid identifier
+  
+  The default interactive shell is now zsh.
+  To update your account to use zsh, please run `chsh -s /bin/zsh`.
+  For more details, please visit https://support.apple.com/kb/HT208050.
+  bash-3.2$
+  bash-3.2$ ls
+  README.md		abcfinlabProject.txt	app			deploy			enforcedMFA.json
+  bash-3.2$
+  bash-3.2$ docker-compose -f deploy/docker-compose.yml run --rm terraform plan
+  Creating deploy_terraform_run ... done
+  Acquiring state lock. This may take a few moments...
+  data.aws_route53_zone.zone: Reading...
+  data.aws_region.current: Reading...
+  data.aws_region.current: Read complete after 0s [id=us-east-1]
+  data.aws_ami.amazon_linux: Reading...
+  data.aws_ami.amazon_linux: Read complete after 0s [id=ami-06eecef118bbf9259]
+  data.aws_route53_zone.zone: Read complete after 1s [id=Z05407483W43EYH5EEZ55]
+  
+  Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+    + create
+  
+  Terraform will perform the following actions:
+  
+    # aws_acm_certificate.cert will be created
+
+  .... (Output truncated for brevity)
+
 
 https://hub.docker.com/r/hashicorp/terraform-k8s/tags
 
