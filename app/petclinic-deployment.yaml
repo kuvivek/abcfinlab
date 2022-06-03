@@ -1,0 +1,34 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: petclinic-deployment
+spec:
+  selector:
+    matchLabels:
+      app: petclinic
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: petclinic
+    spec:
+      containers:
+      - image: 943618641173.dkr.ecr.us-east-1.amazonaws.com/spring-petclinic:latest
+        name: petclinic
+        ports:
+        - containerPort: 8000
+          name: server
+        env:
+        # optional
+        - name: RDS_HOSTNAME
+          value: "sppetclin-dev-db.cvkgs9ovipwz.us-east-1.rds.amazonaws.com"
+        - name: RDS_PORT
+          value: "5432"
+        - name: RDS_DB_NAME
+          value: "petclinic"
+        - name: RDS_USERNAME
+          value: "petclinic"
+        - name: RDS_PASSWORD
+          value: "petclinic"
+      restartPolicy: Always
+status: {}
