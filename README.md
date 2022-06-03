@@ -49,7 +49,7 @@ abcfinlab assignment
   https://github.com/hashicorp/terraform-provider-aws/blob/main/CHANGELOG.md
 
 4. Setup Docker-compose to run terraform - For standardizing the version and also minimalize the tools installation on local machine.
-
+  ```
   MacBook-Pro:abcfinlab vivek$
   MacBook-Pro:abcfinlab vivek$ aws-vault exec vivek-iam-personal --duration=12h
   Enter MFA code for arn:aws:iam::943618641173:mfa/vivek: 632591
@@ -81,6 +81,7 @@ abcfinlab assignment
     # aws_acm_certificate.cert will be created
 
   .... (Output truncated for brevity)
+  ```
 
 5. The app folder has the source code cloned from the following remote github repository.
     ```
