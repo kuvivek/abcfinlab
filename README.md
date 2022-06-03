@@ -82,7 +82,39 @@ abcfinlab assignment
 
   .... (Output truncated for brevity)
 
+5. The app folder has the source code cloned from the following remote github repository.
+    ```
+    bash-3.2$ pwd
+    /Users/vivek/abcfinlab/app/spring-petclinic
+    bash-3.2$
+    bash-3.2$ grep url .git/config
+      url = https://github.com/spring-projects/spring-petclinic
+    bash-3.2$
 
+    ```
+    And the changes required for making connection to the postgres RDS from the spring boot application running from the Kubernetes Pod are on the application.properties and application-postgres.properties shown below:
+    
+    ```
+    bash-3.2$ pwd
+    /Users/vivek/abcfinlab/app/spring-petclinic
+    bash-3.2$
+    bash-3.2$ head -3 src/main/resources/application.properties
+    # database init, supports mysql too
+    #database=h2
+    spring.profiles.active=postgres
+    bash-3.2$
+
+    bash-3.2$ head -5 src/main/resources/application-postgres.properties
+    database=postgres
+    spring.datasource.driverClassName=org.postgresql.Driver
+    spring.datasource.url=jdbc:postgresql://${RDS_HOSTNAME}:${RDS_PORT}/${RDS_DB_NAME}?autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull
+    spring.datasource.username=${RDS_USERNAME}
+    spring.datasource.password=${RDS_PASSWORD}
+    bash-3.2$
+    ````
+
+Link to download the terraform docker image:
 https://hub.docker.com/r/hashicorp/terraform-k8s/tags
+
 
 https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started#install-terraform
